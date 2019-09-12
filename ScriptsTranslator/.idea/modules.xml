@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../.idea/Optical Biosystems.iml" filepath="$PROJECT_DIR$/../.idea/Optical Biosystems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Probe-Image_Analyzer/GUI_script/.idea/GUI_script.iml" filepath="$PROJECT_DIR$/../Probe-Image_Analyzer/GUI_script/.idea/GUI_script.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ScriptsTranslator.iml" filepath="$PROJECT_DIR$/.idea/ScriptsTranslator.iml" />
     </modules>
   </component>

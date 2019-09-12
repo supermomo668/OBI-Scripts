@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a97147be-9881-48a0-9d0a-37a3739c1cce" name="Default Changelist" comment="" />
+    <list default="true" id="a97147be-9881-48a0-9d0a-37a3739c1cce" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/ScriptsTranslator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ScriptsTranslator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FluidicsScriptor.py" beforeDir="false" afterPath="$PROJECT_DIR$/FluidicsScriptor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui_FluidicsScriptor.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui_FluidicsScriptor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui_FluidicsScriptor.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui_FluidicsScriptor.ui" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,18 +18,29 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../Probe-Image_Analyzer/GUI_script/RNAProbe_BatchAnalyzer_fromui.py">
+        <entry file="file://$PROJECT_DIR$/FluidicsScriptor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="964" column="57" selection-start-line="964" selection-start-column="57" selection-end-line="964" selection-end-column="57" />
+            <state relative-caret-position="249">
+              <caret line="613" column="51" lean-forward="true" selection-start-line="613" selection-start-column="51" selection-end-line="613" selection-end-column="51" />
               <folding>
-                <element signature="e#196#238#0" expanded="true" />
-                <element signature="e#1035#38462#0" />
-                <element signature="e#38513#44894#0" />
-                <element signature="e#44937#46684#0" />
-                <element signature="e#46731#47354#0" />
-                <element signature="e#47390#49342#0" />
-                <element signature="e#49379#50351#0" />
+                <element signature="e#208#250#0" expanded="true" />
+                <element signature="e#419#1232#0" />
+                <element signature="e#1271#21792#0" />
+                <element signature="e#21837#25333#0" />
+                <element signature="e#25374#26046#0" />
+                <element signature="e#26080#28457#0" />
+                <element signature="e#28491#28980#0" />
+                <element signature="e#29014#29409#0" />
+                <element signature="e#29447#29886#0" />
+                <element signature="e#29939#30211#0" />
+                <element signature="e#30268#30974#0" />
+                <element signature="e#31017#31166#0" />
+                <element signature="e#31206#31301#0" />
+                <element signature="e#31336#32340#0" />
+                <element signature="e#32558#35265#0" />
+                <element signature="e#34772#35482#0" />
+                <element signature="e#35754#36438#0" />
+                <element signature="e#36243#36409#0" />
               </folding>
             </state>
           </provider>
@@ -39,7 +57,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>QFile</find>
       <find>textBro</find>
       <find>textBrowser</find>
       <find>textBr</find>
@@ -55,6 +72,16 @@
       <find>.clear</find>
       <find>sizeThre</find>
       <find>updateIm</find>
+      <find>nansum</find>
+      <find>init</find>
+      <find>openfi</find>
+      <find>save</find>
+      <find>protocol</find>
+      <find>getope</find>
+      <find>QMessa</find>
+      <find>QFile</find>
+      <find>QMEss</find>
+      <find>QMEs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -71,9 +98,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="330" />
-    <option name="y" value="205" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="870" />
+    <option name="y" value="310" />
     <option name="width" value="2635" />
     <option name="height" value="1830" />
   </component>
@@ -89,12 +116,11 @@
           <expand>
             <path>
               <item name="ScriptsTranslator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OpticalBiosystems" type="462c0819:PsiDirectoryNode" />
+              <item name="ScriptsTranslator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ScriptsTranslator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OpticalBiosystems" type="462c0819:PsiDirectoryNode" />
-              <item name="Probe-Image_Analyzer" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI_script" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -105,7 +131,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Programming/WebDev_Django/django_tutorial/BuildingDjango2.0WebApplications_Code" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
@@ -126,7 +152,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.RNAProbe_BatchAnalyzer_fromui">
+  <component name="RunManager" selected="Python.FluidicsScriptor">
     <configuration name="FluidicsScriptor" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ScriptsTranslator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -171,8 +197,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.RNAProbe_BatchAnalyzer_fromui" />
         <item itemvalue="Python.FluidicsScriptor" />
+        <item itemvalue="Python.RNAProbe_BatchAnalyzer_fromui" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +216,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="132" y="83" width="1054" height="732" extended-state="1" />
+    <frame x="348" y="124" width="1054" height="732" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
@@ -227,23 +253,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/FluidicsScriptor.py</url>
-          <line>488</line>
+          <line>494</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/FluidicsScriptor.py</url>
-          <line>601</line>
+          <line>607</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/FluidicsScriptor.py</url>
-          <line>493</line>
-          <option name="timeStamp" value="9" />
+          <line>731</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/FluidicsScriptor.py</url>
-          <line>643</line>
-          <option name="timeStamp" value="11" />
+          <line>585</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FluidicsScriptor.py</url>
+          <line>569</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/FluidicsScriptor.py</url>
+          <line>615</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -271,16 +307,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainApp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyScript.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MainApp.py" />
+    <entry file="file://$PROJECT_DIR$/MyScript.txt" />
     <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/pandas/core/indexes/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -295,17 +323,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui_ScriptTranslator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="456" selection-end-column="58" />
-          <folding>
-            <element signature="e#312#20668#0" />
-            <element signature="e#20713#24159#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ui_ScriptTranslator.py" />
     <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/mahotas/stretch.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -313,29 +331,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FluidicsScriptor.py">
+    <entry file="file://$PROJECT_DIR$/ui_FluidicsScriptor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="642" lean-forward="true" selection-start-line="642" selection-end-line="642" />
+        <state relative-caret-position="184">
+          <caret line="11" selection-start-line="11" selection-end-line="459" />
           <folding>
-            <element signature="e#208#250#0" expanded="true" />
-            <element signature="e#32474#32640#0" />
+            <element signature="e#312#20802#0" />
+            <element signature="e#20847#24342#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Probe-Image_Analyzer/GUI_script/RNAProbe_BatchAnalyzer_fromui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="964" column="57" selection-start-line="964" selection-start-column="57" selection-end-line="964" selection-end-column="57" />
+        <state relative-caret-position="-402">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/pandas/io/parsers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="1992" column="31" selection-start-line="1992" selection-start-column="31" selection-end-line="1992" selection-end-column="31" />
           <folding>
-            <element signature="e#196#238#0" expanded="true" />
-            <element signature="e#1035#38462#0" />
-            <element signature="e#38513#44894#0" />
-            <element signature="e#44937#46684#0" />
-            <element signature="e#46731#47354#0" />
-            <element signature="e#47390#49342#0" />
-            <element signature="e#49379#50351#0" />
+            <element signature="e#74250#76945#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FluidicsScriptor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="613" column="51" lean-forward="true" selection-start-line="613" selection-start-column="51" selection-end-line="613" selection-end-column="51" />
+          <folding>
+            <element signature="e#208#250#0" expanded="true" />
+            <element signature="e#419#1232#0" />
+            <element signature="e#1271#21792#0" />
+            <element signature="e#21837#25333#0" />
+            <element signature="e#25374#26046#0" />
+            <element signature="e#26080#28457#0" />
+            <element signature="e#28491#28980#0" />
+            <element signature="e#29014#29409#0" />
+            <element signature="e#29447#29886#0" />
+            <element signature="e#29939#30211#0" />
+            <element signature="e#30268#30974#0" />
+            <element signature="e#31017#31166#0" />
+            <element signature="e#31206#31301#0" />
+            <element signature="e#31336#32340#0" />
+            <element signature="e#32558#35265#0" />
+            <element signature="e#34772#35482#0" />
+            <element signature="e#35754#36438#0" />
+            <element signature="e#36243#36409#0" />
           </folding>
         </state>
       </provider>

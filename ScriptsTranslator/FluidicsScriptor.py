@@ -12,26 +12,29 @@ from PyQt5.QtGui import QIntValidator
 
 import pandas as pd, numpy as np, pathlib
 
+
 class Ui_Form(object):
     def __init__(self):
         self.commands_dictionary =\
-            {'Valve_Port': 'V%d P0%s',   # Valve  Port
-             'Draw': 'P1 /%dR\t\t%s\t:%s',   #Volume, time, protocol comment
-             'Velocity': 'P1 /1V%d\t\t\t:%s',
-             'Temp': 'T1 1c%d\t\t0\t:Temperature set to %d',  # Temperature
-             'Init': 'P1 /101R\t\t\t:init start\nP1 /1V3000\nP1 1W4R\nP1 103R\nP1 /1V%d\t\t\t:init end'}
+            {'Valve_Port': 'V%d\tP0%s',   # Valve  Port
+             'Draw': 'P1\t/1P%dR\t%s\t:%s',   #Volume, time, protocol comment
+             'Velocity': 'P1\t/1V%d\t\t:%s',
+             'Temp': 'T1\t1c%d\t0\t:Temperature set to %d',  # Temperature
+             'Init': 'P1\t/101R\t\t:Flush Start\nP1\t/1V3000\nP1\t1W4R\nP1\t103R\nP1\t/1V%d\t\t:End flush at %s'}
         self.df_script = pd.DataFrame(
-            columns=['Command', 'Runtime', 'Syringe Volume', 'Total Volume', 'Description'])
+            columns=['Command', 'Runtime', 'Syringe Volume', 'Description'])
         self.last_valve_port = {1: None, 2: None, 3: None}
         self.last_valve = None
         self.last_temp = 20
         self.volume_used = 0
         self.no_if0 = lambda x: '' if x == 0 else str(x)
+        # load script function
+        self.tab_if_nan = lambda i: "\t" if pd.isna(i) else str(i)
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.setEnabled(True)
-        Form.resize(1043, 1459)
+        Form.resize(815, 1204)
         Form.setMinimumSize(QtCore.QSize(704, 1081))
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout_2.setSpacing(10)
@@ -51,7 +54,7 @@ class Ui_Form(object):
         self.Text_Script.setObjectName("Text_Script")
         self.verticalLayout_2.addWidget(self.Text_Script)
         self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_9.setContentsMargins(-1, -1, -1, 15)
+        self.horizontalLayout_9.setContentsMargins(-1, -1, 10, 15)
         self.horizontalLayout_9.setSpacing(0)
         self.horizontalLayout_9.setObjectName("horizontalLayout_9")
         self.Button_Load = QtWidgets.QPushButton(Form)
@@ -62,22 +65,23 @@ class Ui_Form(object):
         self.Button_Export.setMaximumSize(QtCore.QSize(250, 16777215))
         self.Button_Export.setObjectName("Button_Export")
         self.horizontalLayout_9.addWidget(self.Button_Export, 0, QtCore.Qt.AlignHCenter)
-        self.frame = QtWidgets.QFrame(Form)
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.Line_FileName = QtWidgets.QLineEdit(self.frame)
-        self.Line_FileName.setGeometry(QtCore.QRect(0, 10, 329, 47))
-        self.Line_FileName.setMinimumSize(QtCore.QSize(150, 0))
+        self.Button_SaveComment = QtWidgets.QPushButton(Form)
+        self.Button_SaveComment.setMaximumSize(QtCore.QSize(220, 16777215))
+        self.Button_SaveComment.setObjectName("Button_SaveComment")
+        self.horizontalLayout_9.addWidget(self.Button_SaveComment, 0, QtCore.Qt.AlignHCenter)
+        self.Line_FileName = QtWidgets.QLineEdit(Form)
+        self.Line_FileName.setMinimumSize(QtCore.QSize(0, 0))
+        self.Line_FileName.setMaximumSize(QtCore.QSize(300, 16777215))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.Line_FileName.setFont(font)
         self.Line_FileName.setObjectName("Line_FileName")
-        self.label_17 = QtWidgets.QLabel(self.frame)
-        self.label_17.setGeometry(QtCore.QRect(330, 10, 37, 57))
+        self.horizontalLayout_9.addWidget(self.Line_FileName)
+        self.label_17 = QtWidgets.QLabel(Form)
+        self.label_17.setMinimumSize(QtCore.QSize(50, 0))
         self.label_17.setMaximumSize(QtCore.QSize(100, 16777215))
         self.label_17.setObjectName("label_17")
-        self.horizontalLayout_9.addWidget(self.frame)
+        self.horizontalLayout_9.addWidget(self.label_17)
         self.verticalLayout_2.addLayout(self.horizontalLayout_9)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setContentsMargins(-1, -1, -1, 0)
@@ -330,9 +334,9 @@ class Ui_Form(object):
         self.Spin_WaitMins.setObjectName("Spin_WaitMins")
         self.horizontalLayout_10.addWidget(self.Spin_WaitMins, 0, QtCore.Qt.AlignHCenter)
         self.label_15 = QtWidgets.QLabel(Form)
-        self.label_15.setMinimumSize(QtCore.QSize(65, 0))
+        self.label_15.setMinimumSize(QtCore.QSize(70, 0))
         self.label_15.setObjectName("label_15")
-        self.horizontalLayout_10.addWidget(self.label_15, 0, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_10.addWidget(self.label_15, 0, QtCore.Qt.AlignLeft)
         self.Spin_WaitSecs = QtWidgets.QSpinBox(Form)
         self.Spin_WaitSecs.setMinimumSize(QtCore.QSize(60, 0))
         font = QtGui.QFont()
@@ -343,7 +347,7 @@ class Ui_Form(object):
         self.Spin_WaitSecs.setObjectName("Spin_WaitSecs")
         self.horizontalLayout_10.addWidget(self.Spin_WaitSecs, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.label_16 = QtWidgets.QLabel(Form)
-        self.label_16.setMinimumSize(QtCore.QSize(60, 0))
+        self.label_16.setMinimumSize(QtCore.QSize(70, 0))
         self.label_16.setObjectName("label_16")
         self.horizontalLayout_10.addWidget(self.label_16, 0, QtCore.Qt.AlignHCenter)
         spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -418,21 +422,22 @@ class Ui_Form(object):
         self.verticalLayout_2.addLayout(self.verticalLayout_4)
 
         self.retranslateUi(Form)
-        self.Check_ScriptEdit.toggled['bool'].connect(self.Text_Script.setEnabled)
         self.connect_myslots()
+        self.Check_ScriptEdit.toggled['bool'].connect(self.Text_Script.setEnabled)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "Fluidics Scriptor"))
-        self.Button_Load.setText(_translate("Form", "Load script from ..."))
-        self.Button_Export.setText(_translate("Form", "Save script as ..."))
+        self.Button_Load.setText(_translate("Form", "Load..."))
+        self.Button_Export.setText(_translate("Form", "Save..."))
+        self.Button_SaveComment.setText(_translate("Form", "Save Summary.."))
         self.Line_FileName.setText(_translate("Form", "MyScript"))
         self.label_17.setText(_translate("Form", ".txt"))
         self.label_18.setText(_translate("Form", "Status:"))
         self.Check_ScriptEdit.setText(_translate("Form", "Enable Manual Editing"))
-        self.label_9.setText(_translate("Form", "Syringe volume used:"))
+        self.label_9.setText(_translate("Form", "Syringe used:"))
         self.label_22.setText(_translate("Form", "mL"))
         self.label_20.setText(_translate("Form", "Minimum ETC:"))
         self.label_21.setText(_translate("Form", "mins"))
@@ -464,7 +469,7 @@ class Ui_Form(object):
         self.Combo_Temp.setItemText(2, _translate("Form", "      40"))
         self.Combo_Temp.setItemText(3, _translate("Form", "      65"))
         self.label_13.setText(_translate("Form", "Velocity:"))
-        self.label_10.setText(_translate("Form", " k"))
+        self.label_10.setText(_translate("Form", "mL"))
         self.label_6.setText(_translate("Form", "Draw Volume:"))
         self.Button_Init.setText(_translate("Form", "Init → Velocity"))
         self.Button_Velocity.setText(_translate("Form", "Set Velocity"))
@@ -481,6 +486,7 @@ class Ui_Form(object):
         # File
         self.Button_Load.clicked.connect(self.load_file)
         self.Button_Export.clicked.connect(self.save_file)
+        self.Button_SaveComment.clicked.connect(self.save_protocol)
 
         # Text Box
         self.Text_Script.textChanged.connect(self.update_linemaxnum)
@@ -545,10 +551,10 @@ class Ui_Form(object):
     def add_init(self):
         init_velocity = self.Spin_Velocity.value()*0.1903 + 2.3583
         self.df_script = self.df_script.append(
-            {'Command': self.commands_dictionary['Init'] % init_velocity,
+            {'Command': self.commands_dictionary['Init'] % (init_velocity, "%.2f" % init_velocity+" \u03BCL/s"),
              'Runtime': 10,
              'Syringe Volume': 0,
-             'Description': 'Init syringe, flow speed at %d \u03BCL/s' % init_velocity}, ignore_index=True)
+             'Description': 'Reset syringe, set flow speed at %d \u03BCL/s' % init_velocity}, ignore_index=True)
         self.df2script('Steps Added: Syringe system initialized')
         self.volume_used = 0
 
@@ -557,7 +563,7 @@ class Ui_Form(object):
         self.df_script = self.df_script.append(
             {'Command': self.commands_dictionary['Temp'] % (temp, temp),
              'Runtime': 0.15 * (temp - self.last_temp),
-             'Description': 'Set temperature to %d \u03B1C' % temp}, ignore_index=True)
+             'Description': 'Set temperature to %d \u00B0C' % temp}, ignore_index=True)
         self.last_temp = temp
         self.df2script('Steps Added: New Temperature set')
 
@@ -609,8 +615,7 @@ class Ui_Form(object):
 
     def load_file(self):
         fileName, _ = QFileDialog.getOpenFileName(Form, "QFileDialog.getOpenFileName()", "",
-                                                  "Text Files (*.txt);;"
-                                                  " All Files (*)", )  # Add options here
+                                                  "Text Files (*.txt)")  # Add options here
         if fileName == '':
             QMessageBox.question(Form, 'What the...', 'A file has a name, a man may not.', QMessageBox.Ok)
             return
@@ -619,9 +624,79 @@ class Ui_Form(object):
         except FileNotFoundError:
             QMessageBox.question(Form, 'What the...', 'No such file', QMessageBox.Ok)
             return
-        self.Text_Script.setText(file_read.read()); file_read.close()
-        self.__init__()
+        #self.Text_Script.setText(text_data);
+        self.__init__()   # self.df_script re-created
+        # re-format table
+        try:
+            read_table = pd.read_csv(fileName, sep= "\t",  header = None)
+            self.analyze_table(read_table)
+        except NameError:
+            QMessageBox.question(Form, "Bad file", "Sorry, this is not supported currently",QMessageBox.Ok)
+            return
+        self.df2script(status = "External Script Loaded", remove=True)
         self.Label_Status.setText('Scripts loaded to browser')
+
+    def analyze_table(self, loaded_table):
+        skip_count = 0
+
+        for i in range(loaded_table.shape[0]):
+            # Skip step for init (5 steps)
+            row = loaded_table.iloc[i, :];
+            # Init step
+            if row[1].startswith("/1o1R"):  # Init skip to line 5
+                skip_count = 4
+                continue
+            if skip_count > 0:
+                skip_count -= 1
+                if skip_count == 0:   # Init finish
+                    real_velocity = int(row[1].split("V")[-1]) * 0.1903 + 2.3583
+                    self.df_script = self.df_script.append(
+                        {'Command': self.commands_dictionary['Init'] % (real_velocity, "%.2f" % real_velocity + " \u03BCL/s"),
+                         'Runtime': 10,
+                         'Syringe Volume': 0,
+                         'Description': 'Reset syringe, set flow speed at %d \u03BCL/s' % real_velocity},
+                        ignore_index=True)
+                continue
+
+
+
+            # Change of port step
+            if row[0].startswith("V"):
+                real_volume = 0; wait = None
+                valve = str(row[0][-1]); port = str(row[1])
+                description = "Open Valve %s Port %s" % (valve, port)
+            elif row[0].startswith("P"):
+                if row[1].startswith("/1P"):
+                    volume = int(row[1].split("/1P")[1].split("R")[0])
+                    real_volume = volume * 2.1e-4
+                    description = "Draw %.2f mL from valve %s port %s" % (real_volume, valve, port)
+                elif row[1].startswith("/1V"):
+                    real_volume = 0; wait = None
+                    velocity = row[1].split("V")[-1]
+                    real_velocity = velocity * 0.1903 + 2.3583
+                    description = 'Set flow speed at %.1f \u03BCL/s' % real_velocity
+
+            elif row[0].startswith("T"):
+                wait = None
+                real_volume = 0
+                temp = int(row[1].split("c")[-1])
+                description = "Temperature set to %d \u00B0C" % temp
+
+            wait = row[2]
+            if not pd.isnull(wait):
+                wait = int(wait)
+                if wait > 60:
+                    mins = wait//60; secs = int(wait - mins*60)
+                    description += "; and wait %d mins %d secs" % (mins, secs)
+                else:
+                    description += "; and wait %d s" % wait
+            else:
+                wait = 0
+            self.df_script = self.df_script.append(
+                {'Command': "\t".join([self.tab_if_nan(i) for i in list(row)]),
+                 'Runtime': wait,  # offset
+                 'Syringe Volume': real_volume,
+                 'Description': description}, ignore_index=True)
 
     def save_file(self):
         directory = QFileDialog.getExistingDirectory(Form, "Select Directory")
@@ -640,6 +715,19 @@ class Ui_Form(object):
         file.close();
         self.Label_Status.setText('File saved as ' + fileName+'.txt')
 
+    def save_protocol(self):
+        save_name, choice = QFileDialog.getSaveFileName(Form, "QFileDialog.getOpenFileName()", "",
+                                                           "Text Files (*.txt)")  # Add options here
+        try:
+            with open(save_name, 'w', encoding = 'utf-8') as file:
+                for linenum, step in enumerate(self.df_script["Description"]):
+                    file.write('Step-%s\n' % str(linenum+1))
+                    file.write(step+'\n')
+
+        except NameError and FileNotFoundError:
+            QMessageBox.question(Form, "Wait", "Something gone wrong", QMessageBox.Ok)
+            return
+        QMessageBox.question(Form, "File Saved!", "Saved in directory:\n"+save_name, QMessageBox.Ok)
 
 if __name__ == "__main__":
     import sys
