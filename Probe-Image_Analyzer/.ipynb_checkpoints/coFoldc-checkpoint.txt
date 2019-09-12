@@ -1,0 +1,12 @@
+Please enter concentrations [mol/l]
+ format: ConcA ConcB
+ return to end
+AGGACCAGAU&ACCCAGAGAUAGAUA
+.((.......&..))........... ( -2.20)
+.((.......&..))........... [ -2.37]
+ frequency of mfe structure in ensemble 0.754982; delta G binding= -2.34
+Free Energies:
+AB		AA		BB		A		B
+-2.359435	-4.292536	-0.250225	-0.001606	-0.022798
+Initial concentrations		relative Equilibrium concentrations
+A		B		AB		AA		BB		A		B

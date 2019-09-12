@@ -1,0 +1,2 @@
+C:\Users\Mo\Dropbox\notes\Bioinformatics\OpticalBiosystems\Probe-Image_Analyzer\GUI_script\dist\RNAProbe_BatchAnalyzer_fromui\RNAProbe_BatchAnalyzer_fromui.exe
+pause

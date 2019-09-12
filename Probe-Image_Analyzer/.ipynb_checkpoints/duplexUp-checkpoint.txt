@@ -1,0 +1,4 @@
+  34,  37 	 (0.000) 	 for u=  4
+RNAup output in file: RNA_u1.out
+   1,   4 	 (0.054) 	 for u=  4
+RNAup output in file: RNA_u1.out
